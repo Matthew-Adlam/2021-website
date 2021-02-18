@@ -1,0 +1,38 @@
+header {
+    background: radial-gradient(white,red);
+    font-family: "Joti One", cursive, Helvetica;
+    font-size: 32px;
+    text-align: center;
+    width: 100vw;
+    height: 20vh;
+    padding: 0;
+    margin:0;
+  }
+.header-text {
+    font-size: 75px;
+    text-emphasis: none;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 2.5vh;
+  }
+body {
+      padding:0;
+      margin:0;
+  }
+nav{
+  background: black;
+  padding: 0 10px;
+  font-family: sans-serif;
+  height: 5vh;
+}
+nav a{
+    color:#ccc;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size:25px;
+}
+nav a:hover {
+    font-size: 27.5px;
+    color: green;
+}
