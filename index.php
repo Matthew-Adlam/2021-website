@@ -10,9 +10,9 @@
     <header class = "header-text"> Book Review </header>
 
     <nav>
-      <a href="index.html">Home</a>
-      <a href="signup.html">Sign Up</a>
-      <a href="login.html">Log In</a>
+      <a href="index.php">Home</a>
+      <a href="signup.php">Sign Up</a>
+      <a href="login.php">Log In</a>
     </nav>
 </body>
 </html>
