@@ -4,7 +4,7 @@ header {
     font-size: 32px;
     text-align: center;
     width: 100vw;
-    height: 20vh;
+    height: 25vh;
     padding: 0;
     margin:0;
   }
@@ -16,7 +16,7 @@ header {
     padding-top: 2.5vh;
   }
 body {
-      padding:0;
+     padding:0;
       margin:0;
   }
 nav{
@@ -33,6 +33,5 @@ nav a{
     font-size:25px;
 }
 nav a:hover {
-    font-size: 27.5px;
     color: green;
 }

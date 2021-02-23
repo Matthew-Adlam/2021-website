@@ -1,3 +1,8 @@
+  
+          <!-- connect to database-->
+          <?php
+require_once('includes/connect.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,28 +24,28 @@
     <h1> Sign Up Here </h1>
     <form method = "post" action="signup.php">
     <span class="submit">Username:</span><input type="text" name="username" required>
-    <span class="submit">Password:</span><input type="text" name="password" required>
-    <span class="submit">Email:</span><input type="text" name="password">
-              <!-- posts to database if information correct-->
-<?php
-    if($_SERVER["REQUEST_METHOD"] =="POST") {
-        $username= $_POST["StudySubject"];
-    try {
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    <span class="submit">Password:</span><input type="text" name="passwords" required>
+ <?php   
+        session_start();
+        if($_SERVER["REQUEST_METHOD"] =="POST") {
+        $username = htmlspecialchars(mysqli_real_escape_string($con,$_POST['username']));
+        $passwords = htmlspecialchars(mysqli_real_escape_string($con,$_POST['passwords']));
 
-        $sth  = $pdo->prepare("INSERT INTO StudyCount (StudySubject,StudyTime,) VALUES (:StudySubject,:StudyTime,)");
-        $sth->bindValue(':StudySubject', $StudySubject, PDO::PARAM_STR);
-        $count = $sth->execute();
-        /* if everything correct, inform user operation successful*/
-        if($count == 1) {
-            echo "Record added to the database! Go to the link below to view your study log!";
+        $result = mysqli_query($con,"SELECT * FROM userInfo WHERE username = '$username'");
+        if (mysqli_num_rows($result) !== 0) {
+            echo "username taken idiot";
         }
-        $pdo = null;
+
+        else {
+            $hash = substr(password_hash($passwords, PASSWORD_DEFAULT),0, 60);
+            /* if everything correct, inform user operation successful*/
+            mysqli_query($con,"INSERT INTO `userInfo` VALUES('$username', '$hash')");
+                echo "You have successfully signed up!";
+            $_SESSION['review'] = $username;
+            echo "<script> window.location.assign('review.php');</script>";
+        }
     }
-    catch(PDOException $e) {
-        echo $e->getMessage();
-    }
-}
+  
     ?>
     <br>
     <input type ="submit" value="Submit">
