@@ -24,7 +24,7 @@ require_once('includes/connect.php');
     <form method = "post" action="login.php">
     <span class="submit">Username:</span><input type="text" name="username" required>
     <br>
-    <span class="submit">Password:</span><input type="text" name="passwords" required>
+    <span class="submit">Password:</span><input type="password" name="passwords" required>
     <?php 
     session_start();
      if($_SERVER["REQUEST_METHOD"] =="POST") {
@@ -51,6 +51,7 @@ require_once('includes/connect.php');
     }
     ?>
     <input type ="submit" value="Submit">
+    <input type = "reset" value= "Reset">
     </form>
     </div>
 </body>

@@ -49,6 +49,7 @@ require_once('includes/connect.php');
     ?>
     <br>
     <input type ="submit" value="Submit">
+    <input type = "reset" value= "Reset">
     <br>
     </form>
     </div>
