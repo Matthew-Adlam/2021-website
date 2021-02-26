@@ -18,5 +18,11 @@ require_once('includes/connect.php');
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
     </nav>
+    <h1> Search for reviews made by our users! </h1>
+    <h4> To make a review you must create an account. </h4>
+    <br>
+    <?php 
+
+    ?>
 </body>
 </html>

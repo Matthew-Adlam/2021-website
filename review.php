@@ -11,7 +11,7 @@ require_once('includes/connect.php');
     <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
 </head>
 <body>
-    <header class = "header-text"> Book Review </header>
+    <header class = "header-text"> ignore the styling i will change it </header>
 
     <nav>
       <a href="index.php">Home</a>
@@ -23,7 +23,9 @@ require_once('includes/connect.php');
     <form method = "post" action="review.php">
     <span class="submit">Book Name:</span><input type="text" name="bookName" required>
     <br>
-    <span class="submit">Author/Authors:</span><input type="author" name="authors" required>
+    <span class="submit">Author/Authors:</span><input type="text" name="authors" required>
+    <br>
+    <span class="submit">Genre:</span><input type="text" name="genre" required>
     <br>
     <span class="submit">Rating out of 10:</span><input type="number" name = "rating" min = "1" max = "10" required>
     <br>
@@ -31,14 +33,27 @@ require_once('includes/connect.php');
     <br>
     <span class="submit">Would you recommend this book to other people?</span>       
     <br>
-  <input type="radio" name = "recommend">
-  <label for="male">Male</label><br>
-  <input type="radio" name = "recommend">
-  <label for="female">Female</label><br>
-  <input type="radio" name = "recommend">
+  <input type="radio" name = "recommend" value="yes" id = "yes">
+  <label for="yes">Yes</label><br>
+  <input type="radio" name = "recommend" value="no" id = "no">
+  <label for="no">No</label><br>
+  <input type="radio" name = "recommend" value="undecided" id = "undecided">
   <label for="other">Undecided</label>
+  <br>
  <?php   
-  
+          session_start();
+          if($_SERVER["REQUEST_METHOD"] =="POST") {
+          $bookName = htmlspecialchars(mysqli_real_escape_string($con,$_POST['bookName']));
+          $authors = htmlspecialchars(mysqli_real_escape_string($con,$_POST['authors']));
+          $genre = htmlspecialchars(mysqli_real_escape_string($con,$_POST['genre']));
+          $rating = htmlspecialchars(mysqli_real_escape_string($con,$_POST['rating']));
+          $comments = htmlspecialchars(mysqli_real_escape_string($con,$_POST['comments']));
+          $recommend = htmlspecialchars(mysqli_real_escape_string($con,$_POST['recommend']));
+
+          $res = mysqli_query($con,"INSERT INTO `reviews`(bookName,authors,genre,rating,comments,recommend) VALUES('$bookName', '$authors', '$genre', '$rating', '$comments', '$recommend')");
+          print_r([$res, mysqli_error($con)]);
+          echo "Review added!";
+          }
     ?>
     <br>
     <input type ="submit" value="Submit">
