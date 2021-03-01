@@ -35,3 +35,13 @@ nav a{
 nav a:hover {
     color: green;
 }
+tr,table,td,th {
+  border-width: 1px;
+  border:2px solid black;
+  margin-left:10px;
+  border-collapse: collapse;
+}
+.reviewStyle {
+  background-color: blue;
+  margin-bottom:25px;
+}
