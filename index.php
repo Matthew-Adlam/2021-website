@@ -21,8 +21,11 @@ require_once('includes/connect.php');
     <h1> Search for reviews made by our users! </h1>
     <h4> To make a review you must create an account. </h4>
     <br>
+    
     <?php 
+      foreach ($con -> query ("SELECT bookName,authors,genre,rating,comments,recommend FROM reviews") as $row) {
 
+      }
     ?>
 </body>
 </html>

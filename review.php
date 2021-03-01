@@ -11,7 +11,7 @@ require_once('includes/connect.php');
     <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8">
 </head>
 <body>
-    <header class = "header-text"> ignore the styling i will change it </header>
+    <header class = "header-text"> Book Review </header>
 
     <nav>
       <a href="index.php">Home</a>
