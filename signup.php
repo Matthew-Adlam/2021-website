@@ -16,6 +16,7 @@ require_once('includes/connect.php');
 
     <nav>
       <a href="index.php">Home</a>
+      <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
     </nav>
@@ -33,7 +34,7 @@ require_once('includes/connect.php');
 
         $result = mysqli_query($con,"SELECT * FROM userInfo WHERE username = '$username'");
         if (mysqli_num_rows($result) !== 0) {
-            echo "username taken idiot";
+            echo "Username already taken";
         }
 
         else {

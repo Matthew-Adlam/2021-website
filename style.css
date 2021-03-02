@@ -30,7 +30,7 @@ nav a{
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
-    font-size:25px;
+    font-size:20px;
 }
 nav a:hover {
     color: green;
@@ -44,4 +44,12 @@ tr,table,td,th {
 .reviewStyle {
   background-color: blue;
   margin-bottom:25px;
+}
+.search {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
 }

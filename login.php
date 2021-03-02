@@ -15,6 +15,7 @@ require_once('includes/connect.php');
 
     <nav>
       <a href="index.php">Home</a>
+      <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
     </nav>
