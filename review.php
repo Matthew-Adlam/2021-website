@@ -31,6 +31,7 @@ require_once('includes/connect.php');
     <span class="submit">Rating out of 10:</span><input type="number" name = "rating" min = "1" max = "10" required>
     <br>
     <span class="submit">Comments:</span><input type="text" name ="comments" required>
+    <!-- put rows = "x" and columns = "y" above -->
     <br>
     <span class="submit">Would you recommend this book to other people?</span>       
     <br>

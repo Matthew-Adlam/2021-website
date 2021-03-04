@@ -42,7 +42,7 @@ tr,table,td,th {
   border-collapse: collapse;
 }
 .reviewStyle {
-  background-color: blue;
+  background-color: red;
   margin-bottom:25px;
 }
 .search {
@@ -52,4 +52,22 @@ tr,table,td,th {
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+.bookName {
+  
+}
+.authors {
+
+}
+.genre {
+
+}
+.rating {
+
+}
+.comments {
+
+}
+.recommend {
+
 }

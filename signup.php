@@ -25,7 +25,7 @@ require_once('includes/connect.php');
     <h1> Sign Up Here </h1>
     <form method = "post" action="signup.php">
     <span class="submit">Username:</span><input type="text" name="username" required>
-    <span class="submit">Password:</span><input type="text" name="passwords" required>
+    <span class="submit">Password:</span><input type="password" name="passwords" required>
  <?php   
         session_start();
         if($_SERVER["REQUEST_METHOD"] =="POST") {
