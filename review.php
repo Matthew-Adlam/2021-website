@@ -30,15 +30,16 @@ require_once('includes/connect.php');
     <br>
     <span class="submit">Rating out of 10:</span><input type="number" name = "rating" min = "1" max = "10" required>
     <br>
-    <span class="submit">Comments:</span><input type="text" name ="comments" required>
-    <!-- put rows = "x" and columns = "y" above -->
+    <span class="submit">Comments:</span>
+    <br>
+    <textarea name ="comments" rows="10" columns = "100" required></textarea>
     <br>
     <span class="submit">Would you recommend this book to other people?</span>       
     <br>
-  <input type="radio" name = "recommend" value="yes" id = "yes">
-  <label for="yes">Yes</label><br>
-  <input type="radio" name = "recommend" value="no" id = "no">
-  <label for="no">No</label><br>
+  <input type="radio" name = "recommend" value="Yes" id = "Yes">
+  <label for="Yes">Yes</label><br>
+  <input type="radio" name = "recommend" value="No" id = "No">
+  <label for="No">No</label><br>
   <input type="radio" name = "recommend" value="undecided" id = "undecided">
   <label for="other">Undecided</label>
   <br>
@@ -58,10 +59,12 @@ require_once('includes/connect.php');
           }
     ?>
     <br>
-    <input type ="submit" value="Submit">
-    <input type = "reset" value= "Reset">
+    <input type ="submit" value="Submit" class="submitButton">
+    <input type = "reset" value= "Reset" class="resetButton">
     <br>
     </form>
     </div>
+    <br>
+    <h3> Leaving this page will log you out for security purposes. </h3>
 </body>
 </html>

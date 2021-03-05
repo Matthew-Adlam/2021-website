@@ -23,7 +23,7 @@ require_once('includes/connect.php');
     <div class = "search">
     <form action = "browse.php">
     <input type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
+    <button type="submit" class = searchButton></button>
     </form>
     </div>
 </body>

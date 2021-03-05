@@ -28,34 +28,38 @@ require_once('includes/connect.php');
     ?>
   <div class = "reviewStyle">
   <div class = "bookNameStyle">
+  <p class="questionText"><b>Book Name:</b></p>
   <?php 
   echo $row['bookName'];
   ?>
   </div>
   <div class = "authorStyle">
+  <p class="questionText"><b>Author/Authors:</b></p>
   <?php 
   echo $row['authors'];
   ?>
   </div>
   <div class = "genreStyle">
+  <p class="questionText"><b>Genre:</b></p>
   <?php 
   echo $row['genre'];
   ?>
   </div>
   <div class = "ratingStyle">
+  <p class="questionText"><b>Rating:</b></p>
   <?php 
   echo $row['rating'];
   ?>
   </div>
   <div class = "commentsStyle">
+  <p class="questionText"><b>Comments:</b></p>
   <?php 
   echo $row['comments'];
   ?>
   </div>
   <div class = "recommendStyle">
-  <?php 
-  echo $row['recommend'];
-  ?>
+  <p class="questionText"><b>Do they recommend this book?</b></p>
+  <?php echo $row['recommend']; ?>
   </div>
   </div>
 <?php } ?>

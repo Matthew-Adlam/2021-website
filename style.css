@@ -44,6 +44,8 @@ tr,table,td,th {
 .reviewStyle {
   background-color: red;
   margin-bottom:25px;
+  width:50vw;
+  position:center;
 }
 .search {
   padding: 6px 10px;
@@ -52,6 +54,12 @@ tr,table,td,th {
   font-size: 17px;
   border: none;
   cursor: pointer;
+}
+.searchButton {
+  padding: 6px 10px;
+  margin-top:8px;
+  width:40px;
+  height:20px;
 }
 .bookName {
   
@@ -69,5 +77,14 @@ tr,table,td,th {
 
 }
 .recommend {
+
+}
+.questionText {
+  font-size:100%;
+}
+.submitButton {
+
+}
+.resetButton {
 
 }
