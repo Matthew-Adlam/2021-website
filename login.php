@@ -23,9 +23,13 @@ require_once('includes/connect.php');
     <div class = "inputbox">
     <h1> Login here! </h1>
     <form method = "post" action="login.php">
-    <span class="submit">Username:</span><input type="text" name="username" required>
+      <label for = "username">Username: </label>
+      <br>
+    <span class="submit"></span><input type="text" name="username" class="formStyle" required>
     <br>
-    <span class="submit">Password:</span><input type="password" name="passwords" required>
+    <label for = "passwords">Password: </label>
+      <br>
+    <span class="submit"></span><input type="password" name="passwords" class="formStyle" required>
     <?php 
     session_start();
      if($_SERVER["REQUEST_METHOD"] =="POST") {
@@ -35,12 +39,14 @@ require_once('includes/connect.php');
       $result = mysqli_query($con,"SELECT * FROM userInfo WHERE username = '$username'");
       if (mysqli_num_rows($result) == 1) {
         while($row = mysqli_fetch_array($result)) {
+          $dbusername  = htmlspecialchars($row['username']);
           $hash  = htmlspecialchars($row['passwords']);
         }
+        
         if (password_verify($passwords,substr($hash, 0, 60))) {
           echo "Welcome Back!";
-          $_SESSION['review'] = $username;
-          echo "<script> window.location.assign('review.php');</script>";
+          $_SESSION['review'] = $dbusername;
+          echo "<script> window.location.assign('home.php');</script>";
         }
         else {
           echo "Incorrect username or password";
@@ -51,9 +57,12 @@ require_once('includes/connect.php');
       }
     }
     ?>
-    <input type ="submit" value="Submit">
-    <input type = "reset" value= "Reset">
+    <br>
+    <input type ="submit" value="Submit" class = "buttonPrimary">
+    <input type = "reset" value= "Reset" class = "buttonSecondary">
     </form>
     </div>
+    <br>
+    <p> Don't have an account? <a href = "signup.php">Get one now.</a></p>
 </body>
 </html>

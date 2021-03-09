@@ -45,6 +45,7 @@ require_once('includes/connect.php');
   <br>
  <?php   
           session_start();
+          $_SESSION = ['username'];
           if($_SERVER["REQUEST_METHOD"] =="POST") {
           $bookName = htmlspecialchars(mysqli_real_escape_string($con,$_POST['bookName']));
           $authors = htmlspecialchars(mysqli_real_escape_string($con,$_POST['authors']));
@@ -53,7 +54,7 @@ require_once('includes/connect.php');
           $comments = htmlspecialchars(mysqli_real_escape_string($con,$_POST['comments']));
           $recommend = htmlspecialchars(mysqli_real_escape_string($con,$_POST['recommend']));
 
-          $res = mysqli_query($con,"INSERT INTO `reviews`(bookName,authors,genre,rating,comments,recommend) VALUES('$bookName', '$authors', '$genre', '$rating', '$comments', '$recommend')");
+          $res = mysqli_query($con,"INSERT INTO `reviews`(username,bookName,authors,genre,rating,comments,recommend) VALUES('$username','$bookName', '$authors', '$genre', '$rating', '$comments', '$recommend')");
           print_r([$res, mysqli_error($con)]);
           echo "Review added!";
           }

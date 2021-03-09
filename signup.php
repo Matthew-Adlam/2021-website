@@ -43,7 +43,7 @@ require_once('includes/connect.php');
             mysqli_query($con,"INSERT INTO `userInfo` VALUES('$username', '$hash')");
                 echo "You have successfully signed up!";
             $_SESSION['review'] = $username;
-            echo "<script> window.location.assign('review.php');</script>";
+            echo "<script> window.location.assign('home.php');</script>";
         }
     }
   

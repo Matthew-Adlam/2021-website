@@ -24,9 +24,16 @@ require_once('includes/connect.php');
     <br>
     <table>
     <?php 
+    
       foreach ($con -> query ("SELECT * FROM reviews") as $row) {
     ?>
   <div class = "reviewStyle">
+  <div class = "usernameStyle">
+  <p class="username"><b>Username:</b></p>
+  <?php 
+  echo $row['username'];
+  ?>
+  </div>
   <div class = "bookNameStyle">
   <p class="questionText"><b>Book Name:</b></p>
   <?php 
