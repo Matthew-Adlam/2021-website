@@ -18,18 +18,20 @@ require_once('includes/connect.php');
       <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
+      <a href="home.php">Home</a>
     </nav>
-
+<div class = "mobile">
     <div class = "inputbox">
     <h1> Login here! </h1>
     <form method = "post" action="login.php">
       <label for = "username">Username: </label>
       <br>
-    <span class="submit"></span><input type="text" name="username" class="formStyle" required>
+    <span class="submit"></span><input type="text" name="username" class="formStyle" required placeholder = "Username">
     <br>
     <label for = "passwords">Password: </label>
       <br>
-    <span class="submit"></span><input type="password" name="passwords" class="formStyle" required>
+    <span class="submit"></span><input type="password" name="passwords" class="formStyle" required placeholder = "Password">
+    <br>
     <?php 
     session_start();
      if($_SERVER["REQUEST_METHOD"] =="POST") {
@@ -49,20 +51,22 @@ require_once('includes/connect.php');
           echo "<script> window.location.assign('home.php');</script>";
         }
         else {
-          echo "Incorrect username or password";
+          echo "<p class = 'echoText'>Incorrect username or password</p>";
         }
       }
       else {
-        echo "Incorrect username or password";
+        echo "<p class = 'echoText'>Incorrect username or password</p>";
       }
     }
     ?>
     <br>
-    <input type ="submit" value="Submit" class = "buttonPrimary">
+    <input type ="submit" value="Log In!" class = "buttonPrimary">
     <input type = "reset" value= "Reset" class = "buttonSecondary">
     </form>
     </div>
-    <br>
-    <p> Don't have an account? <a href = "signup.php">Get one now.</a></p>
+    <p><b> Don't have an account? <a href = "signup.php">Get one now.</b></a></p>
+    </br>
+    <p><b>You must be signed in to create a review,vote or report a review.</b></p>
+    </div>
 </body>
 </html>

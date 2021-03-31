@@ -19,22 +19,39 @@ require_once('includes/connect.php');
       <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
+      <a href="home.php">Home</a>
     </nav>
-
+  <div class = "mobile">
     <div class = "inputbox">
-    <h1> Sign Up Here </h1>
+    <h1> Sign Up Here! </h1>
     <form method = "post" action="signup.php">
-    <span class="submit">Username:</span><input type="text" name="username" required>
-    <span class="submit">Password:</span><input type="password" name="passwords" required>
+    <label for = "username">Username: </label>
+      <br>
+    <span class="submit"></span><input type="text" name="username" class = "formStyle" required placeholder = "Username">
+    <br>
+    <label for = "passwords">Password: </label>
+      <br>
+    <span class="submit"></span><input type="password" name="passwords" class = "formStyle" required placeholder = "Password">
+    <br>
+    <label for = "confirmPassword">Confirm Password: </label>
+    <br>
+    <span class="submit"></span><input type="password" name="confirmPassword" class = "formStyle" required placeholder = "Confirm Password">
  <?php   
         session_start();
         if($_SERVER["REQUEST_METHOD"] =="POST") {
         $username = htmlspecialchars(mysqli_real_escape_string($con,$_POST['username']));
         $passwords = htmlspecialchars(mysqli_real_escape_string($con,$_POST['passwords']));
+        $confirm = htmlspecialchars(mysqli_real_escape_string($con,$_POST['confirmPassword']));
 
         $result = mysqli_query($con,"SELECT * FROM userInfo WHERE username = '$username'");
         if (mysqli_num_rows($result) !== 0) {
-            echo "Username already taken";
+            echo "<br>";
+            echo "<p class = 'echoText'> Username already taken</p>";
+            echo "<br>";
+        }
+        if ($passwords !== $confirm) {
+          echo "<br>";
+          echo "<p class = 'echoText'>Passwords do not match</p>";
         }
 
         else {
@@ -49,10 +66,13 @@ require_once('includes/connect.php');
   
     ?>
     <br>
-    <input type ="submit" value="Submit">
-    <input type = "reset" value= "Reset">
+    <br>
+    <input type ="submit" value="Sign Up!" class = "buttonPrimary">
+    <input type = "reset" value= "Reset" class = "buttonSecondary">
     <br>
     </form>
+    </div>
+    <p><b> Already have an account? <a href = "login.php">Log in here.</b></a></p>
     </div>
 </body>
 </html>

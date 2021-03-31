@@ -18,13 +18,10 @@ require_once('includes/connect.php');
       <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
+      <a href="home.php">Home</a>
     </nav>
+    <div class = "background">
 
-    <div class = "search">
-    <form action = "browse.php">
-    <input type="text" placeholder="Search.." name="search">
-    <button type="submit" class = searchButton></button>
-    </form>
     </div>
 </body>
 </html>

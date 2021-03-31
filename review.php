@@ -18,21 +18,23 @@ require_once('includes/connect.php');
       <a href="browse.php">Browse Reviews</a>
       <a href="signup.php">Sign Up</a>
       <a href="login.php">Log In</a>
+      <a href="home.php">Home</a>
     </nav>
+    <div class = "mobile">
     <div class = "inputbox">
     <h1> Input a review here! </h1>
     <form method = "post" action="review.php">
-    <span class="submit">Book Name:</span><input type="text" name="bookName" required>
+    <span class="submit">Book Name:</span><input type="text" name="bookName" required class = "formStyle" >
     <br>
-    <span class="submit">Author/Authors:</span><input type="text" name="authors" required>
+    <span class="submit">Author/Authors:</span><input type="text" name="authors" required class = "formStyle" >
     <br>
-    <span class="submit">Genre:</span><input type="text" name="genre" required>
+    <span class="submit">Genre:</span><input type="text" name="genre" required class = "formStyle" >
     <br>
-    <span class="submit">Rating out of 10:</span><input type="number" name = "rating" min = "1" max = "10" required>
+    <span class="submit">Rating out of 10:</span><input type="number" name = "rating" min = "1" max = "10" required class = "formStyle" >
     <br>
     <span class="submit">Comments:</span>
     <br>
-    <textarea name ="comments" rows="10" columns = "100" required></textarea>
+    <textarea name ="comments" rows="10" columns = "100" required class = "formStyle" ></textarea>
     <br>
     <span class="submit">Would you recommend this book to other people?</span>       
     <br>
@@ -45,7 +47,11 @@ require_once('includes/connect.php');
   <br>
  <?php   
           session_start();
-          $_SESSION = ['username'];
+          /*|| isset ($_SESSION['review']) */
+          if ($_SESSION['review'] == '') {
+            header('Location:login.php');
+          }
+          $username =  $_SESSION['review'];
           if($_SERVER["REQUEST_METHOD"] =="POST") {
           $bookName = htmlspecialchars(mysqli_real_escape_string($con,$_POST['bookName']));
           $authors = htmlspecialchars(mysqli_real_escape_string($con,$_POST['authors']));
@@ -55,7 +61,6 @@ require_once('includes/connect.php');
           $recommend = htmlspecialchars(mysqli_real_escape_string($con,$_POST['recommend']));
 
           $res = mysqli_query($con,"INSERT INTO `reviews`(username,bookName,authors,genre,rating,comments,recommend) VALUES('$username','$bookName', '$authors', '$genre', '$rating', '$comments', '$recommend')");
-          print_r([$res, mysqli_error($con)]);
           echo "Review added!";
           }
     ?>
@@ -65,7 +70,7 @@ require_once('includes/connect.php');
     <br>
     </form>
     </div>
+    </div>
     <br>
-    <h3> Leaving this page will log you out for security purposes. </h3>
 </body>
 </html>
