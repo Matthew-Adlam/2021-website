@@ -1,5 +1,6 @@
+/* styles the header, making it take up the full width of the page */
 header {
-    background: radial-gradient(white,red);
+    background: radial-gradient(#fc4e03,red);
     font-family: "Joti One", cursive, Helvetica;
     font-size: 32px;
     text-align: center;
@@ -8,19 +9,21 @@ header {
     padding: 0;
     margin:0;
   }
+  /* styles the 'Book Review' text */
 .header-text {
     font-size: 75px;
     text-emphasis: none;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     padding-top: 2.5vh;
-  }
-
+}
+/* aligns text and objects to the center */
 .aligncenter {
   text-align: center;
   padding-right:50%;
 }
-  body {
+/* styles the body, and puts the background image in */
+body {
     padding:0;
      margin:0;
      background-repeat: no-repeat;
@@ -28,15 +31,18 @@ header {
      background-size: cover;
      background-attachment: fixed;
  }
+ /* makes a margin for the input */
 .inputbox {
   margin-left:10px  !important;
 }
+/* styles the nav */
 nav{
   background: black;
   padding: 0 10px;
   font-family: sans-serif;
   height: 5vh;
 }
+/* styles the nav text */
 nav a{
     color:#ccc !important;
     display: inline-block;
@@ -44,30 +50,33 @@ nav a{
     text-decoration: none;
     font-size:20px;
 }
+/* makes a hover effect for the nav text */
 nav a:hover {
     color: green !important;
 }
-a:visited {
+/* sets the link text for visited pages and unvisited pages to be black */
+a:visited, a {
   color:black;
 }
-a {
-  color:black;
-}
+/* makes a hover effect for the links */
 a:hover {
   color: green;
 }
+/* makes the table look nice */
 tr,table,td,th {
   border-width: 1px;
   border:2px solid black;
   margin-left:10px;
   border-collapse: collapse;
 }
+/* provide appropriate padding for certain elements */
 .paddingLeft {
   padding-left: 10px;
 }
 .morePadding {
   padding-left: 30px;
 }
+/* styles the reviews on browse.php, comment.php, viewcomment.php and report.php */
 .reviewStyle {
   background-color:#ff9933;
   margin-bottom:25px;
@@ -78,9 +87,11 @@ tr,table,td,th {
   padding:12px;
   box-sizing: border-box;
 }
+/* links aren't underlined */
 .reviewStyle:any-link {
   text-decoration: none;
 }
+/* styles the search bar */
 .search {
   padding: 6px 10px;
   margin-top: 8px;
@@ -89,12 +100,24 @@ tr,table,td,th {
   border: none;
   cursor: pointer;
 }
+/* styles the search bar itself */
+.searchBarSearching {
+  border-radius: 4px;
+  border-color: #000;
+  outline: none;
+  padding: 1%;
+  font-size: 14px;
+  width:50vw;
+  box-sizing: border-box;
+}
+/* styles the search button */
 .searchButton {
   padding: 6px 10px;
   margin-top:8px;
   width:40px;
   height:20px;
 }
+/* styles the 'Submit' button */
 .buttonPrimary {
   background-color: #ff0a0a;
   padding: 8px 15px;
@@ -103,10 +126,12 @@ tr,table,td,th {
   font-size:14px;
   display: inline-block;
 }
+/* gives the submit button a hover effect */
 .buttonPrimary:hover {
   background-color: #fc6d6d;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+/* styles the 'Reset' button */
 .buttonSecondary {
   background-color: #ff0a0a;
   padding: 8px 15px;
@@ -115,10 +140,12 @@ tr,table,td,th {
   font-size:14px;
   display: inline-block;
 }
+/* gives the reset button a hover effect */
 .buttonSecondary:hover {
   background-color: #fc4e03;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+/* styles the home button(not currently in use) */
 .homeButton {
   background-color: #deca16;
   padding: 8px 15px;
@@ -127,60 +154,165 @@ tr,table,td,th {
   font-size:14px;
   display: inline-block;
 }
+/* gives home button a hover effect (not currently in use) */
 .homeButton:hover {
   background-color: #ffe600;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+/* gives style to inputs */
 .formStyle {
   padding:6px 10px;
   box-sizing: border-box;
   border-radius: 4px;
+  resize: none;
 }
+/* styles the textarea(any large inputs) */
+textarea {
+  resize: none;
+  border-radius: 4px;
+  border: 2px solid black;
+  font-family: 'Times New Roman', Times, serif;
+  width:auto;
+}
+/* centers the text */
 .centerText {
   padding-top:10px;
   padding-left:25%;
 }
+/* makes paragraphs bigger */
 p {
   font-size: 120%;
 }
+/* gives all buttons with that class more padding */
 .centerbutton {
   padding-left:8%;
 }
+/* styles all buttons on the browse.php page */
 .reportButton {
-  position: absolute;
-  right: 0%;
+  background-color: #FE1919;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 2px solid black;
+  font-size:14px;
+  display: inline-block;
 }
+/* gives those buttons a hover effect */
+.reportButton:hover {
+  background-color: #fc4e03;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+/* makes those buttons on the right */
+.reportWrapper {
+  float: right;
+}
+/* makes those buttons inside the review 'box' */
+.biggerReportWrapper {
+  position: relative;
+  height: 30px;
+}
+/* makes those buttons side by side */
 .report {
   position: relative;
-  height:22px;
+  display: inline-block;
+  margin-left: 5px;
 }
+/* enlarges some text */
 .questionText {
   font-size:100%;
 }
+/* enlarges some text */
 .echoText {
   font-size:90%;
 }
+/* makes sure its not on the edge */
 .individualReview {
   border-radius: 1px;
 }
+/* another way of centering text, according to screen size */
+.alittleleft {
+  margin-right:40vw;
+}
+/* this is redundant for the moment */
+.mobile input:hover ~ .radio {
+  background-color: red;
+}
+/* for the h2 on home.php */
+.toppadding {
+  padding-top:250px;
+  text-align:center;
+}
+/* big screens only: */
 @media only screen and (min-width : 720px) {
+  /* gives more padding */
   .mobile {
     padding-left:35%;
     padding-top:20px;
   }
-
+  /* styles the 'Create A Review' button */
+  .reviewImage {
+    float:left !important;
+    size:70%;
+    padding-left: 10px;
+    margin-left: 100px;
+  }
+  /* styles the 'Log Out' button */
+  .reviewImage2 {
+    float:right !important;
+    size:70%;
+    padding-right: 10px;
+    margin-right: 100px;
+  }
+  /* enlarges */
   .echoText {
     font-size:100%;
   }
+  /* centers text on browse.php */
   .browse {
     padding-left:25%;
   }
+  /* resizing */
   .searchBar {
     size:20vw;
   }
+  /* enlarges */
+  img {
+    size:100%;
+  }
 }
 @media only screen and (max-width : 720px) {
+  /* reduces font size */
   nav a {
-font-size: 16px;
+font-size: 10px;
   }
+  /* reduces nav bar */
+  nav {
+    height:5vw;
+  }
+  /* reduces header text size */
+  .header-text {
+    font-size: 40px;
+  }
+  /* reduces header */
+  header {
+    height:12vh;
+  }
+  /* reduces image size */
+  img {
+    max-width: 100%;
+    height:auto;
+  }
+  /* makes it take  */
+   .reviewStyle {
+     width:98vw !important;
+     margin-left:1vw !important;
+     margin-right:1vw !important;
+   }
+   /* no padding for header */
+   header {
+     padding-left:0px !important;
+   }
+   /* reduces top effect on mobile */
+   .toppadding {
+     padding-top:50px;
+   }
 }

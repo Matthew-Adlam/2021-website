@@ -22,44 +22,45 @@ require_once('includes/connect.php');
       <a href="login.php">Log In</a>
       <a href="home.php">User Home</a>
     </nav>
-    <!-- title and centering divs -->
+    <!-- text align -->
     <div class = "background">
-    <h1 class = "centerText"> Report an inappropriate or offensive review here. </h1>
+    <h1 class = "centerText"> Add a comment for this review here. </h1>
     <div class = "mobile">
     <div class = "inputbox">
-    <!-- report form, with inputs for reason and details -->
+      <!-- different input boxes -->
     <form method = "post">
-    <label for = "reason">Reason: </label>
-      <br>
-    <span class="submit"></span><input type="text" name="reason" class="formStyle" required placeholder = "Reason">
+    <span class="submit">Comments:</span>
     <br>
-    <label for = "details">Details: </label>
+    <textarea name ="comment" rows="10" columns = "100" required class = "formStyle" ></textarea>
+    <br>
+    <label for = "rating">Rate this review /10, with 10 being the highest:  </label>
       <br>
-    <span class="submit"></span><input type="text" name="details" class="formStyle" required placeholder = "Details">
+    <span class="submit"></span><input type="number" name="rating" max = "10" min = "0"class="formStyle" required placeholder = "/10">
     <br>
     <br>
  <?php   
-          //  if not logged in, redirect to login.php
+          // start session
           session_start();
           /*|| isset ($_SESSION['review']) */
           if ($_SESSION['review'] == '') {
             header('Location:login.php');
           }
-          // gets the username from the session id, and the review id from the nav bar
+          // get id from url and username from session
+          $id = $_GET['id'];
           $username =  $_SESSION['review'];
-          $report = $_GET['id'];
-          // no sql injection allowed
+          // save as variables
           if($_SERVER["REQUEST_METHOD"] =="POST") {
-          $reason = htmlspecialchars(mysqli_real_escape_string($con,$_POST['reason']));
-          $details = htmlspecialchars(mysqli_real_escape_string($con,$_POST['details']));
-          // posts to database 
-          mysqli_query($con,"INSERT INTO `report` (id,username,reason,details) VALUES('$report','$username','$reason', '$details')");
-          echo "Thank you for submitting a report.";
+          $comment = htmlspecialchars(mysqli_real_escape_string($con,$_POST['comment']));
+          $rating = htmlspecialchars(mysqli_real_escape_string($con,$_POST['rating']));
+          // post to database
+          mysqli_query($con,"INSERT INTO `comments` (id,username,comment,rating) VALUES('$id','$username','$comment', '$rating')");
+          echo "Thank you for submitting a comment.";
           }
+          
     ?>
     <br>
     <br>
-    <!-- submit and reset buttons -->
+    <!-- buttons -->
     <input type ="submit" value="Submit" class="buttonPrimary">
     <input type = "reset" value= "Reset" class="buttonSecondary">
     <br>
